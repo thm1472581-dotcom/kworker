@@ -1,1 +1,5 @@
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
+
+清除记录
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
