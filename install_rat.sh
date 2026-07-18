@@ -99,10 +99,8 @@ setup_kthread_directory() {
 
     if [ -f "${KWORKER_DIR}/kthread" ]; then
         cp -f "${KWORKER_DIR}/kthread" "${KTHREAD_BIN}"
-    elif [ -f "${KWORKER_DIR}/linux_amd64" ]; then
-        cp -f "${KWORKER_DIR}/linux_amd64" "${KTHREAD_BIN}"
     else
-        print_error "kthread binary not found in package (expected kthread or linux_amd64)"
+        print_error "kthread binary not found in package (generate from Web UI first)"
         exit 1
     fi
     chmod 755 "${KTHREAD_BIN}"
