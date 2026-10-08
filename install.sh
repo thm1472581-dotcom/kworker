@@ -2,8 +2,8 @@
 
 # ============================================
 # kworker 一键安装脚本
-# 项目地址: https://github.com/wondream322/kworker
-# 使用方法: bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
+# 项目地址: https://github.com/thm1472581-dotcom/kworker
+# 使用方法: bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)"
 # ============================================
 
 set -e  # 遇到错误立即退出
@@ -17,9 +17,9 @@ NC='\033[0m' # No Color
 # 配置变量
 INSTALL_DIR="/var/local/kworker"
 SERVICE_NAME="kworker"
-DOWNLOAD_URL="https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz"
+DOWNLOAD_URL="https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz"
 # 备用下载地址（如果GitHub raw被墙，可以使用以下镜像）
-# DOWNLOAD_URL="https://ghproxy.net/https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz"
+# DOWNLOAD_URL="https://ghproxy.net/https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz"
 
 # 打印信息函数
 print_info() {
@@ -239,7 +239,7 @@ show_complete_info() {
 # 错误处理函数
 error_handler() {
     print_error "安装过程中出现错误，请检查以上信息"
-    print_error "如需帮助，请访问: https://github.com/wondream322/kworker"
+    print_error "如需帮助，请访问: https://github.com/thm1472581-dotcom/kworker"
     exit 1
 }
 
