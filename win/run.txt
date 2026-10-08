@@ -1,7 +1,7 @@
 # 以管理员身份打开 PowerShell，执行：
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-iex (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/wondream322/kworker/master/win/install.ps1').Content
+iex (Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/install.ps1').Content
 
 # 或者下载下面任意一个，管理员运行
-https://raw.githubusercontent.com/wondream322/kworker/master/win/install.bat
-https://raw.githubusercontent.com/wondream322/kworker/master/win/install.ps1
+https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/install.bat
+https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/install.ps1

