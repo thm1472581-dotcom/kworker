@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# 确保脚本以 root 权限运行
-# if [ "$EUID" -ne 0 ]; then
-#   echo "[-] 请使用 root 权限运行此脚本 (sudo)"
-#   exit 1
-# fi
-
 echo "[+] 正在切换工作目录..."
 cd "/var/local/kworker" || { echo "[-] 目录切换失败"; exit 1; }
 
