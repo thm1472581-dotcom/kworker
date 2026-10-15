@@ -3,7 +3,7 @@
 # ============================================
 # kworker 一键安装脚本
 # 项目地址: https://github.com/thm1472581-dotcom/kworker
-# 使用方法: bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)"
+# 使用方法: bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install.sh)"
 # ============================================
 
 set -e  # 遇到错误立即退出

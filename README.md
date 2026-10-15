@@ -18,7 +18,7 @@ kworker/
 用户在服务器上执行以下命令即可：
 
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install.sh)"
 ```
 
 > **说明**：GitHub 提供了 `raw.githubusercontent.com` 域名用于直接访问仓库中的原始文件内容，上面的链接正是利用了这个功能。
@@ -34,7 +34,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworke
 
 2. **GitHub 访问稳定性**
    - 国内服务器执行时，偶尔会遇到 `raw.githubusercontent.com` 域名解析慢或被阻断的情况。
-   - **终极解决方案**：可以使用国内镜像加速，将命令中的 `raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh` 替换为 `raw.sevencdn.com/thm1472581-dotcom/kworker/master/install.sh`（示例，可用性需自测）。
+   - **终极解决方案**：可以使用国内镜像加速，将命令中的 `raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install.sh` 替换为 `raw.sevencdn.com/thm1472581-dotcom/kworker/master/scripts/install.sh`（示例，可用性需自测）。
 
 3. **install.sh 脚本本身要完善**
    - 请确保脚本开头有 `#!/bin/bash`。
@@ -43,7 +43,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworke
 ### 💎 最终推荐方案
 将 **`install.sh`** 和 **`kworker.tar.gz`** 都上传到您的 GitHub 仓库。用户只需记住一条命令：
 ```bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install.sh)"
 ```
 即可在所有主流 Linux 发行版（CentOS/Ubuntu/Debian）上一键完成安装、配置、自启动，体验与宝塔面板安装一样流畅。
 
